@@ -36,8 +36,17 @@ main(void)
 	/*
 	 * Only catch SIGTSTP if we're running with a job-control shell.
 	 */
-	if (signal(SIGTSTP, SIG_IGN) == SIG_DFL)
-		signal(SIGTSTP, sig_tstp);
+
+//    sigset_t	mask;
+//    sigemptyset(&mask);
+//    sigaddset(&mask, SIGTSTP);
+//    sigprocmask(SIG_SETMASK, &mask, NULL);
+
+    if (signal(SIGTSTP, SIG_IGN) == SIG_DFL)
+    {
+        printf("signal(SIGTSTP, SIG_IGN) == SIG_DFL\n");
+	    signal(SIGTSTP, sig_tstp);
+    }
 
 	while ((n = read(STDIN_FILENO, buf, BUFFSIZE)) > 0)
 		if (write(STDOUT_FILENO, buf, n) != n)

@@ -8,5 +8,7 @@ apueSignalsPath=${apuePath}/signals
 cd ${apueLibPath}; make .
 
 filename=child.c
+filename=mask.c
+filename=sigtstp.c
 
 fullfile=${apueSignalsPath}/${filename};gcc -I${apueIncludePath} -o ${filename%.*} -g ${fullfile} -L${apueLibPath} -lapue
