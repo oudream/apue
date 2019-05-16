@@ -25,6 +25,7 @@ main(void)
 	}
 	canjump = 1;	/* now sigsetjmp() is OK */
 
+    pr_mask("xxxx ");		/* {Prog prmask} */
 	for ( ; ; )
 		pause();
 }
